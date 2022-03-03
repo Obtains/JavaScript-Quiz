@@ -65,7 +65,7 @@ function startQuiz(quizSet) {
     
     quizDurationEl = quiz.length * 20;
     if (test) {console.log("duration g,q", quizDurationEl); }
-    beginQuizTimer();
+    startQuizTimer();
     startTime();
 
     startQuestion();
@@ -123,9 +123,9 @@ function startQuestion() {
     function quizAwnser(current) {
         if (test) {console.log("--- quizAwnser ---"); }
 
-        var event = event.target;
-        if (event.matches("li")) {
-            let selectInfo = event.textContent;
+        var e = 
+        if (e.matches("li")) {
+            let selectInfo = e.textContent;
             
             if (test) {console.log("selectInfo quiz" + selectInfo); }
 
