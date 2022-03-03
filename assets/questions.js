@@ -14,5 +14,6 @@ let jsQuestions= [
     {
         title: "What encloses the condition of a if/else statement?",
         options: ["Curly Brackets", "Parentheses", "Square Brackets", "Quotes"],
+        anwser: "Parentheses"
     }
 ];
