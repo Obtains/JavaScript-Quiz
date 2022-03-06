@@ -4,32 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/style.css">
+
     <title>JavaScript Quiz</title>
 </head>
 <body>
     <!-- Header -->
-    <nav class="navhead navbar-expand-md fixed-top">
-        <div class="container">
-            <div id="bestscore" class="navhead-info navhead-link">View Best Scores</div>
-            <h1 id="navhead-title">Timed Quiz</h1>
-            <table id="timer" style="visibility: hidden;">
-                <tr>
-                    <td>Time Left!</td>
-                    <td> <span id="quizTimer"class="navhead-info"></span> </td>
-                </tr>
-            </table>
+    <a href="bestscores.html">Check Leader Board</a>
+    <div id="content">
+        <div id="quizTimer"></div>
+        <div id="questionInfo">
+            <h1>JavaScript Quiz</h1>
+            <p>Anwser the questions in the time limit, the remaining time will determine your score. If a question is anwsered incorrectly 5 seconds will be deducted. Good Luck!</p>
+            
+            <button id="beginTime">Begin Quiz</button>
         </div>
-    </nav>
-
-    <!-- Quiz Content -->
-    <div class="container">
-        <section id="content"></section>
     </div>
-    <script src="./assets/questions.js"></script>
+   
 
+ 
+    
     <script src="./assets/script.js"></script>
 </body>
 </html>
