@@ -1,48 +1,48 @@
 /* Quiz Questions */
-let jsQuestions= [
+var jsQuestions= [
     {
         title: "What does the term DOM stand for?",
         options: ["Document Object Model", "Data Object Media", "Decimal Opt Model", "Delta Oscar Micheal"],
-        answer: "Document Object Model"
+        answer: "Document Object Model",
     },
 
     {
         title: "What does the term API stand for?",
         options: ["Alpacas Pacing Independantly", "Application Programming Info", "Application Programming Interface", "Apply Pictures Index"],
-        anwser: "Application Programming Interface"
+        answer: "Application Programming Interface",
     },
 
     {
         title: "What encloses the condition of a if/else statement?",
         options: ["Curly Brackets", "Parentheses", "Square Brackets", "Quotes"],
-        anwser: "Parentheses"
-    }
+        answer: "Parentheses",
+    },
 ];
 
 /* Page Objects */
-const score = 0;
-const quizList = 0;
-const questionInfo = document.querySelector("#questionInfo");
-const contentEl = document.querySelector("#content");
-const quizTimerEl = document.querySelector("#quizTimer");
-const timerInfo = document.querySelector("#timer");
+var score = 0;
+var quizList = 0;
+var questionInfo = document.querySelector("#questionInfo");
+var contentEl = document.querySelector("#content");
+var currentTime = document.querySelector("#quizTimer");
+var timerInfo = document.querySelector("#beginTime");
 
 /* Timer Variables */
-const ulData = document.createElement("ul");
-const timeLeft = 60;
-const timeInterval = 0;
-const penalty = 5;
+var ulData = document.createElement("ul");
+var timeLeft = 60;
+var timeInterval = 0;
+var penalty = 5;
 
-quizTimerEl.addEventListener("click", function() {
+timerInfo.addEventListener("click", function () {
     if (timeInterval === 0) {
-        timeInterval = setInterval(function() {
+        timeInterval = setInterval(function () {
             timeLeft--;
-            timerInfo.textContent = "Time Remaining: " + timeLeft;
+            currentTime.textContent = "Time Remaining: " + timeLeft;
 
             if (timeLeft <= 0) {
                 clearInterval(timeInterval);
                 quizDone();
-                timerInfo.textContent = "Time's up!";
+                currentTime.textContent = "Time's up!";
             }
         }, 1000);
     }
@@ -73,8 +73,8 @@ function check(event) {
     var e = event.target;
     if (e.matches("li")) {
         var divData = document.createElement("div");
-        divData.setAttribute("id", divData);
-        if (e.textContent == jsQuestions[quizList].anwser) {
+        divData.setAttribute("id", "divData");
+        if (e.textContent == jsQuestions[quizList].answer) {
             score++;
             divData.textContent = "Correct!!!";
         }
@@ -88,8 +88,8 @@ function check(event) {
 
     if (quizList >= jsQuestions.length) {
         quizDone();
-        divData.textContent = "Quiz Over" + " " + "You scored " + score + "/" + jsQuestions.length + " Correct!!!";}
-    
+        divData.textContent = "Quiz Over " + " " + "You scored " + score + "/" + jsQuestions.length + " Correct!!!";
+    }
         else {
             create(quizList);
         }
@@ -99,7 +99,7 @@ function check(event) {
 /* Quiz Completed */
 function quizDone() {
     questionInfo.innerHTML = "";
-    timerInfo.innerHTML = "";
+    currentTime.innerHTML = "";
 
     var h1Data = document.createElement("h1");
     h1Data.setAttribute("id", "h1Data");
@@ -124,27 +124,27 @@ function quizDone() {
 
     var inputData = document.createElement("input");
     inputData.setAttribute("type", "text");
-    inputData.setAttribute("id", "init");
+    inputData.setAttribute("id", "initials");
     inputData.textContent = "";
 
     questionInfo.appendChild(inputData);
 
     var buttonData = document.createElement("button");
-    buttonData.setAttribute("type", "text");
-    buttonData.setAttribute("id", "init");
+    buttonData.setAttribute("type", "enter");
+    buttonData.setAttribute("id", "Enter");
     buttonData.textContent = "Enter";
 
     questionInfo.appendChild(buttonData);
 
     buttonData.addEventListener("click", function () {
-        var init = inputData.value;
+        var initials = inputData.value;
 
-        if (init === null) {
+        if (initials === null) {
             alert("No input entered, please enter in initials.");
         }
         else {
             var endScore = {
-                init: initials,
+                initials: initials,
                 score: timeRemain,
             };
             console.log(endScore);
