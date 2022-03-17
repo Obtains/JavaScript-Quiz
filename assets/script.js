@@ -158,7 +158,7 @@ function quizDone() {
             leaderScores.push(endScore);
             var newScore = JSON.stringify(leaderScores);
             localStorage.setItem("leaderScores", newScore);
-            window.location.replace("bestScores.html");
+            window.location.replace("bestscores.html");
         }
     });
 }
